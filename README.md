@@ -1,24 +1,61 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 目的
 
-Things you may want to cover:
+このアプリケーションは「ちょっとしたオンラインショップ」の EC サイトです。
+一般ユーザが参照できる公開サイトと、スタッフがアクセスできる管理画面で構成されています。
 
-* Ruby version
+このサイトは途中まで作成されています。
+残り、以下の要件を満たす必要があるのでこれを実現してみてください。
+実装方法は (Rails である限り) 自由です。
 
-* System dependencies
+- TODO: 課題の設定をいくつか
 
-* Configuration
+## EC サイト画面
 
-* Database creation
+スタッフによる認証を要求されず、一般が誰でも参照可能な画面です。
 
-* Database initialization
+### トップ画面
 
-* How to run the test suite
+http://localhost:3000/
 
-* Services (job queues, cache servers, search engines, etc.)
+このオンラインショップが取り扱う商品が一覧表示されている画面です。
+それぞれの商品を選択すると、その商品の詳細画面に遷移します。
 
-* Deployment instructions
+一覧画面で表示される商品の情報は以下です。
 
-* ...
+- 商品名
+- 在庫状態
+  - 商品の在庫が `>0` の場合 `In stock` 、そうでない場合 `Sold out`
+- 価格
+
+### 商品の詳細画面
+
+http://localhost:3000/items/:id
+
+## 管理画面
+
+http://localhost:3000/admin からアクセスできます。
+スタッフ専用画面になっており、ユーザ認証を要します。
+
+あらかじめ、以下の認証情報によりスタッフがアクセスできます。
+
+| username | password |
+| -------- | -------- |
+| user     | P@ssW0rd |
+
+## セットアップから起動まで
+
+セットアップ
+
+```
+bin/setup --skip-server
+```
+
+Rails アプリケーション起動
+
+```
+bin/dev
+```
+
+ブラウザから http://localhost:3000/ にアクセスするとアプリケーションの起動が確認できます。
